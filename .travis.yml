@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+- 2.3.0
+script:
+- rspec
+deploy:
+  provider: rubygems
+  gem: sQucumber-redshift
+  api_key:
+    secure: ky6XfjGr005mZ0Fbjyhkpb/B+8qRJq86QYFPwJP/aMZHdbZHrNbKUwNyYKimDaAAmI/0X6aSk17cpi6zAHMi1quBNEJj7pm0qp+BYjgjlbGvNbtsI1vJ10L2tYVG7dW46uSwuM7UAV7tyTUPsMl7MKxRD0EdA61ZZ5yP+5++ZD0URURUOjEJvw+ooSZjGavO7aOFmORDkuWAtLWsPzwf7Kq8tMxZfGUHSCESlWICvlRWai0vz3GHd9Dvj5qxu3Tg+7WLtf9tfkovCEFKzQkY6IYDse2dsvp//Qk084RK4MpqIoYKI+crSEqYz4xv2F+sZ4/t+A8d3BoBrZljyfVnjzqUqVhShfozyuz/lGmvNtEnnYIpH2auuOLGALv1fIBh5au6oRUoODF2gsW0sdHAGcQ+hguQP6WVkVbu0Crs3FSZuoMQq5OjgtW6npv4+7NeRhnCjlomTfsOr7zxSXP6ObxjQplNAP2Siff20mlNnZ9hL+DeEzRyKe1Dw4UqYDSkv/qdQF15aw+1+r/kkjaR8CEni+YGScGgv8Qwjaiyu9NNlst7uEkHIjhvoeFmXBhdKByvBRTHYy+xhV7NtaGynu3EWQSAvYvUssBzGfzKCIYTs4e4mk67ohPLxegSLchj+e0d6jV8LKDjAsJj6/D/kIurgzxSltXNHlFBnf8e4oA=
+  on:
+    tags: true
+    repo: moertel/sQucumber-redshift
