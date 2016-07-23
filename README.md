@@ -1,6 +1,6 @@
-[![Gem Version](https://badge.fury.io/rb/sQucumber-redshift.svg)](https://badge.fury.io/rb/sQucumber-redshift) [![Build Status](https://travis-ci.org/moertel/sQucumber-redshift.svg?branch=master)](https://travis-ci.org/moertel/sQucumber-redshift) [![Test Coverage](https://codeclimate.com/github/moertel/sQucumber-redshift/badges/coverage.svg)](https://codeclimate.com/github/moertel/sQucumber-redshift/coverage) [![Code Climate](https://codeclimate.com/github/moertel/sQucumber-redshift/badges/gpa.svg)](https://codeclimate.com/github/moertel/sQucumber-redshift)
-
 # sQucumber Redshift
+
+[![Gem Version](https://badge.fury.io/rb/sQucumber-redshift.svg)](https://badge.fury.io/rb/sQucumber-redshift) [![Dependency Status](https://gemnasium.com/badges/github.com/moertel/sQucumber-redshift.svg)](https://gemnasium.com/github.com/moertel/sQucumber-redshift) [![Build Status](https://travis-ci.org/moertel/sQucumber-redshift.svg?branch=master)](https://travis-ci.org/moertel/sQucumber-redshift) [![Test Coverage](https://codeclimate.com/github/moertel/sQucumber-redshift/badges/coverage.svg)](https://codeclimate.com/github/moertel/sQucumber-redshift/coverage) [![Gitter](https://img.shields.io/gitter/room/sQucumber/sQucumber.js.svg?maxAge=2592000?style=flat)](https://gitter.im/moertel/sQucumber)
 
 Define and execute SQL integration tests for AWS Redshift. It's Cucumber - for SQL!
 
