@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rspec', ['>= 3.1', '< 4.0']
   s.add_development_dependency 'rspec-collection_matchers', ['>= 1.1.2', '< 2.0']
+  s.add_development_dependency 'codeclimate-test-reporter', ['>= 0.4.3', '< 1.0']
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

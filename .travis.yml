@@ -3,6 +3,10 @@ rvm:
 - 2.3.0
 script:
 - rspec
+addons:
+  code_climate:
+    repo_token:
+      secure: VfGd2zmiTFowpAeZaoXSs3ZYsgZ4pt1dsxnL1FQjGdMgf91PdEi6JtNBzv7Pm5f8a3Lv/C0yUmyNre9GOnfXMDca24Oqu6SCCJOcIewnoCv1JEwPUsyN7tk71V9CrHoI5KbSojmbbQa+6GRSOQlpisa+qgZEfdZCQLNGEWJwRIHYHe4F+EmVECVeBeQpIiGovRTN0AyaRWJ9OAm9p5zGVSF+GW4A53jo597kjk9h1IFKwKH/OQmourgu52CyHzTIknVoF4ovhf9LV2rONsmOj08bUyvzGt8dAupmDRkFjE9M0+mgmZOBmoqiietzE+0ABLCGyQiq8H+PQVwUDnOiFpV82qBOi3SzzgBnd7gYo/aZsdUtR757F61MhQG3yQSSgdfT2PvQb8DV4NRI1T51TttFxVGMuHhExLz+K/xYW64sXsGUpk7BEiLJaOgh1AaWvLBDppg94lYhu3KqMK/e/C6+OJ43ZUA6tweKM5ydqiSUcfwYR0nyI8ttjJXlovzb5PwlPeJAKJJfZ4T+d7yjXDnL2doguPe0lbwV1ejB4iGrj/J1e6mlMZJbwOaYZGkBLQ+jZ2NXVE8g1TwXy5IdAq8BK0h1csZRuAAh2KFq8LJYiMqrTbr568w98nksF0KLc6RtHaGjn7S12ACkvq0msL4uAfRcFEZet2sbzuqy2v8=
 deploy:
   provider: rubygems
   gem: sQucumber-redshift
