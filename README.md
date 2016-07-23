@@ -2,6 +2,8 @@
 
 # sQucumber Redshift
 
+[![Join the chat at https://gitter.im/moertel/sQucumber-redshift](https://badges.gitter.im/moertel/sQucumber-redshift.svg)](https://gitter.im/moertel/sQucumber-redshift?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Define and execute SQL integration tests for AWS Redshift. It's Cucumber - for SQL!
 
 ## Installation
