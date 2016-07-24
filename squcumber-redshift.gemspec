@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
     'lib/squcumber-redshift/support/database.rb',
     'lib/squcumber-redshift/support/matchers.rb',
     'lib/squcumber-redshift/support/output.rb',
-    'lib/squcumber-redshift/task.rb'
+    'lib/squcumber-redshift/rake/task.rb'
   ]
   s.test_files = [
     'spec/spec_helper.rb',

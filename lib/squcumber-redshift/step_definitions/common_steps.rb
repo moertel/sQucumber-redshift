@@ -7,12 +7,12 @@ end
 # Takes a path and then sequentially adds what's provided in `data`
 # to be later executed in the step `the given SQL files are executed`
 # +path+:: relative to root of project, e.g. "jobs/kpi/sales"
-Given(/^the SQL files in the path (.*):$/) do |path, data|
+Given(/^the SQL files in the path "?(.*)"?:$/) do |path, data|
   @sql_file_path = path
   @sql_files_to_execute = data.hashes.map { |e| "#{@sql_file_path}/#{e['file']}" }
 end
 
-Given(/^the SQL file path ([^\s]+)$/) do |path|
+Given(/^the SQL file path "?([^\s]+)"?$/) do |path|
   @sql_file_path = path
 end
 
@@ -46,7 +46,7 @@ Given(/^their table dependencies:$/) do |data|
   end
 end
 
-Given(/^the following defaults for ([^\s]+) \(if not stated otherwise\):$/) do |table, data|
+Given(/^the following defaults for "?([^\s]+)"? \(if not stated otherwise\):$/) do |table, data|
   @defaults ||= {}
   @defaults[table] = data.hashes[0]
 end
@@ -57,7 +57,7 @@ Given(/a clean environment/) do
   end
 end
 
-Given(/^the existing table ([a-zA-Z0-9_]+)\.([a-zA-Z0-9_]+)( with date placeholders)?:$/) do |schema, table, placeholder, data|
+Given(/^the existing table "?([a-zA-Z0-9_]+)\.([a-zA-Z0-9_]+)"?( with date placeholders)?:$/) do |schema, table, placeholder, data|
   mock_data = data.hashes
   @defaults ||= {}
   defaults = @defaults["#{schema}.#{table}"]
@@ -79,13 +79,13 @@ When(/^the given SQL files are executed$/) do
   end
 end
 
-When(/^the SQL file ([^\s]+) is executed/) do |file|
+When(/^the SQL file "?([^\s]+)"? is executed/) do |file|
   silence_streams(STDERR) do
     TESTING_DATABASE.exec_file("#{@sql_file_path}/#{file}")
   end
 end
 
-When(/^the resulting table ([^\s]*) is queried(?:, ordered by (.*))?/) do |table, sort_column|
+When(/^the resulting table "?([^\s]*)"? is queried(?:, ordered by "?(.*)"?)?/) do |table, sort_column|
   sort_statement = (sort_column.nil? or sort_column.empty?) ? '' : "order by #{sort_column}"
   @result = TESTING_DATABASE.query("select * from #{table} #{sort_statement};").map { |e| e }
 end

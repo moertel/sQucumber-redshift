@@ -1,8 +1,8 @@
 # sQucumber Redshift
 
-[![Gem Version](https://badge.fury.io/rb/sQucumber-redshift.svg)](https://badge.fury.io/rb/sQucumber-redshift) [![Dependency Status](https://gemnasium.com/badges/github.com/moertel/sQucumber-redshift.svg)](https://gemnasium.com/github.com/moertel/sQucumber-redshift) [![Build Status](https://travis-ci.org/moertel/sQucumber-redshift.svg?branch=master)](https://travis-ci.org/moertel/sQucumber-redshift) [![Test Coverage](https://codeclimate.com/github/moertel/sQucumber-redshift/badges/coverage.svg)](https://codeclimate.com/github/moertel/sQucumber-redshift/coverage) [![Gitter](https://img.shields.io/gitter/room/sQucumber/sQucumber.js.svg?maxAge=2592000?style=flat)](https://gitter.im/moertel/sQucumber)
+[![Gem Version](https://badge.fury.io/rb/squcumber-redshift.svg)](https://badge.fury.io/rb/squcumber-redshift) [![Dependency Status](https://gemnasium.com/badges/github.com/moertel/sQucumber-redshift.svg)](https://gemnasium.com/github.com/moertel/sQucumber-redshift) [![Build Status](https://travis-ci.org/moertel/sQucumber-redshift.svg?branch=master)](https://travis-ci.org/moertel/sQucumber-redshift) [![Test Coverage](https://codeclimate.com/github/moertel/sQucumber-redshift/badges/coverage.svg)](https://codeclimate.com/github/moertel/sQucumber-redshift/coverage) [![Gitter](https://img.shields.io/gitter/room/sQucumber/sQucumber.js.svg?maxAge=2592000?style=flat)](https://gitter.im/moertel/sQucumber)
 
-Bring the BDD approach to writing SQL and be confident that your scripts do what they're supposed to do. Define and execute SQL unit, acceptance and integration tests for AWS Redshift, let them serve as a living documentation for your queries. It's Cucumber - for SQL!
+Bring the BDD approach to writing SQL for your Amazon Web Services Redshift cluster and be confident that your scripts do what they're supposed to do. Define and execute SQL unit, acceptance and integration tests and let them serve as a living documentation for your queries. It's Cucumber - for SQL!
 
 ## Example
 
@@ -49,8 +49,8 @@ Or install it yourself as:
 
 Put your `.feature` files in the directory `feature` in your project's root. (You may use subfolders.)
 In order to take advantage of auto-generated Rake tasks, add this to your `Rakefile`:
-```
-require 'squcumber-redshift/task'
+```ruby
+require 'squcumber-redshift/rake/task'
 ```
 
 The following folder structure
@@ -63,15 +63,25 @@ The following folder structure
         └── logs
             └── aggregate.feature
 ```
-Leads to the following Rake tasks
+Leads to the following Rake tasks:
 ```
 $ rake -T
-test:sql:marketing[scenario_line_number]
-test:sql:marketing:sales[scenario_line_number]
-test:sql:marketing:kpi[scenario_line_number]
-test:sql:development[scenario_line_number]
-test:sql:development:logs[scenario_line_number]
-test:sql:development:logs:aggregate[scenario_line_number]
+rake test:sql:marketing                                         # Run SQL tests for all features in marketing
+rake test:sql:marketing:sales[scenario_line_number]             # Run SQL tests for feature marketing/sales
+rake test:sql:marketing:kpi[scenario_line_number]               # Run SQL tests for feature marketing/kpi
+rake test:sql:development                                       # Run SQL tests for all features in development
+rake test:sql:development:logs                                  # Run SQL tests for all features in development/logs
+rake test:sql:development:logs:aggregate[scenario_line_number]  # Run SQL tests for feature development/logs/aggregate
+```
+
+Run a whole suite of features by executing a Rake task on the folder level:
+```
+rake test:sql:marketing
+```
+
+Or execute a specific scenario only by specifying its line number in the corresponding `.feature` file:
+```
+rake test:sql:marketing:sales[12]
 ```
 
 ### Environment Variables
