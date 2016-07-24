@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name               = 'squcumber-redshift'
-  s.version            = '0.1.2'
+  s.version            = '0.1.3'
   s.default_executable = 'squcumber-redshift'
 
   s.licenses = ['MIT']
@@ -28,9 +28,9 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.6.2}
   s.summary = %q{Define and execute SQL integration tests for AWS Redshift}
 
-  s.add_runtime_dependency 'pg', ['>= 0.18.0', '< 1.0']
-  s.add_runtime_dependency 'cucumber', ['>= 2.4.0', '< 3.0']
-  s.add_runtime_dependency 'rake', ['>= 11.2.2', '< 12.0']
+  s.add_runtime_dependency 'pg', ['>= 0.16', '< 1.0']
+  s.add_runtime_dependency 'cucumber', ['>= 2.0', '< 3.0']
+  s.add_runtime_dependency 'rake', ['>= 10.1', '< 12.0']
 
   s.add_development_dependency 'rspec', ['>= 3.1', '< 4.0']
   s.add_development_dependency 'rspec-collection_matchers', ['>= 1.1.2', '< 2.0']
