@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
-  s.name               = 'sQucumber-redshift'
-  s.version            = '0.1.1'
+  s.name               = 'squcumber-redshift'
+  s.version            = '0.1.2'
   s.default_executable = 'squcumber-redshift'
 
   s.licenses = ['MIT']

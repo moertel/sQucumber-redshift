@@ -10,7 +10,7 @@ RSpec.configure do |config|
   # Redirect stderr and stdout to get rid of info messages during execution
   # of specs.
   # Via http://stackoverflow.com/questions/15430551/suppress-console-output-during-rspec-tests
-  unless ENV['DWH_SPEC_SHOW_STDOUT'] == '1'
+  unless ENV['SPEC_SHOW_STDOUT'] == '1'
     original_stderr = $stderr
     original_stdout = $stdout
     config.before(:all) do
