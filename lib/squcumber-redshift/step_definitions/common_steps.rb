@@ -1,7 +1,14 @@
 require 'json'
 
-Before do
-  $setup ||= false
+$feature_name ||= ''
+$setup ||= false
+
+Before do |scenario|
+  current_scenario_name = scenario.feature.name rescue nil
+  if current_scenario_name != $feature_name
+    $feature_name = current_scenario_name
+    $setup = false
+  end
 end
 
 # Takes a path and then sequentially adds what's provided in `data`

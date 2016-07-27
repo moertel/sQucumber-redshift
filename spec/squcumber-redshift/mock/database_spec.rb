@@ -155,6 +155,23 @@ module Squcumber::Redshift::Mock
       end
     end
 
+    describe '#setup' do
+      let(:schemas) { ['some_schema', 'another_schema'] }
+
+      before(:each) do
+        @dummy = described_class.new(production_database)
+        allow(@dummy).to receive(:exec)
+        @dummy.setup(schemas)
+      end
+
+      it 'drops and creates all schemas' do
+        expect(@dummy).to have_received(:exec).with('drop schema if exists some_schema cascade').ordered
+        expect(@dummy).to have_received(:exec).with('create schema some_schema').ordered
+        expect(@dummy).to have_received(:exec).with('drop schema if exists another_schema cascade').ordered
+        expect(@dummy).to have_received(:exec).with('create schema another_schema').ordered
+      end
+    end
+
     describe '#truncate_all_tables' do
       let(:existing_tables) { ['some_schema.some_table', 'some_other_schema.some_other_table'] }
 

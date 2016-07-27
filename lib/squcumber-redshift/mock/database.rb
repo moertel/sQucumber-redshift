@@ -28,7 +28,10 @@ module Squcumber
         end
 
         def setup(schemas)
-          schemas.each { |schema| exec("create schema #{schema}") }
+          schemas.each do |schema|
+            exec("drop schema if exists #{schema} cascade")
+            exec("create schema #{schema}")
+          end
         end
 
         def truncate_all_tables
