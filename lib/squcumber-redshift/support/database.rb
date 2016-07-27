@@ -13,5 +13,5 @@ puts 'DONE.'
 TESTING_DATABASE ||= Squcumber::Redshift::Mock::Database.new(production_database)
 
 at_exit do
-  TESTING_DATABASE.destroy
+  TESTING_DATABASE.destroy rescue nil
 end
