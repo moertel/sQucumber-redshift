@@ -107,7 +107,8 @@ module Squcumber
 
         def _get_create_table_statement(schema, table)
           @production_database.exec("set search_path to '$user', #{schema};")
-          table_schema = @production_database.query("select * from pg_table_def where schemaname = '#{schema}' and tablename = '#{table}';")
+          table_schema = @production_database.query("select column_name, data_type, character_maximum_length from INFORMATION_SCHEMA.COLUMNS where table_schema = '#{schema}' and table_name = '#{table}';")
+
           raise "Sorry, there is no table information for #{schema}.#{table}" if table_schema.num_tuples == 0
 
           distkey = _get_table_distkey(table_schema)
@@ -121,15 +122,15 @@ module Squcumber
         end
 
         def _get_table_distkey(table_definition)
-          table_definition.select { |definition| definition['distkey'].eql?('t') }[0]['column'] rescue nil
+          table_definition.select { |definition| definition['distkey'].eql?('t') }[0]['column_name'] rescue nil
         end
 
         def _get_table_sortkeys(table_definition)
-          table_definition.sort_by { |e| e['sortkey'].to_i }.select { |e| e['sortkey'].to_i != 0 }.map { |e| e['column'] } rescue nil
+          table_definition.sort_by { |e| e['sortkey'].to_i }.select { |e| e['sortkey'].to_i != 0 }.map { |e| e['column_name'] } rescue nil
         end
 
         def _get_column_definitions(table_definition)
-          table_definition.map { |definition| "#{definition['column']} #{definition['type']} default null" }
+          table_definition.map { |definition| "#{definition['column_name']} #{definition['data_type']} default null" }
         end
       end
     end
